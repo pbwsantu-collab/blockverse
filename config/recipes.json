@@ -1,0 +1,22 @@
+{
+  "planks_from_wood": {
+    "type": "shapeless",
+    "inputs": {"wood": 1},
+    "output": {"item": "planks", "count": 4}
+  },
+  "torch": {
+    "type": "shapeless",
+    "inputs": {"coal": 1, "planks": 1},
+    "output": {"item": "torch", "count": 4}
+  },
+  "wooden_pickaxe": {
+    "type": "shapeless",
+    "inputs": {"planks": 3},
+    "output": {"item": "wooden_pickaxe", "count": 1}
+  },
+  "wooden_sword": {
+    "type": "shapeless",
+    "inputs": {"planks": 2},
+    "output": {"item": "wooden_sword", "count": 1}
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "plains": {"temp": 0.7, "humidity": 0.4, "surface": "grass", "fill": "dirt", "trees": 0.02},
+  "forest": {"temp": 0.6, "humidity": 0.7, "surface": "grass", "fill": "dirt", "trees": 0.08},
+  "desert": {"temp": 0.95, "humidity": 0.1, "surface": "sand", "fill": "sand", "trees": 0.0},
+  "ocean": {"temp": 0.5, "humidity": 1.0, "surface": "water", "fill": "sand", "trees": 0.0},
+  "mountains": {"temp": 0.3, "humidity": 0.4, "surface": "stone", "fill": "stone", "trees": 0.01},
+  "tundra": {"temp": 0.15, "humidity": 0.3, "surface": "dirt", "fill": "dirt", "trees": 0.005}
+}

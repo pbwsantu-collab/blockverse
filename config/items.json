@@ -1,0 +1,13 @@
+{
+  "wood": {"stack": 64, "placeable": "wood"},
+  "planks": {"stack": 64, "placeable": "planks"},
+  "dirt": {"stack": 64, "placeable": "dirt"},
+  "stone": {"stack": 64, "placeable": "stone"},
+  "cobble": {"stack": 64, "placeable": "cobble"},
+  "sand": {"stack": 64, "placeable": "sand"},
+  "coal": {"stack": 64},
+  "iron_ore": {"stack": 64},
+  "torch": {"stack": 64, "placeable": "torch"},
+  "wooden_pickaxe": {"stack": 1, "tool": "pickaxe", "tier": 1, "damage": 2, "durability": 60},
+  "wooden_sword": {"stack": 1, "tool": "sword", "tier": 1, "damage": 4, "durability": 50}
+}

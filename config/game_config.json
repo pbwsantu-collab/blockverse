@@ -1,0 +1,14 @@
+{
+  "title": "BLOCKVERSE",
+  "version": "0.2.0",
+  "chunk_size": 16,
+  "chunk_height": 128,
+  "render_distance": 3,
+  "day_length_seconds": 1440,
+  "gravity": 22.0,
+  "player_speed": 6.0,
+  "sprint_multiplier": 1.6,
+  "jump_force": 8.5,
+  "reach": 5.0,
+  "seed": 42
+}

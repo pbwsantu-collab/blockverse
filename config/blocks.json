@@ -1,0 +1,15 @@
+{
+  "air": {"id": 0, "name": "Air", "solid": false, "transparent": true, "hardness": 0},
+  "grass": {"id": 1, "name": "Grass", "solid": true, "hardness": 0.6, "color": [0.35, 0.7, 0.25], "drops": "dirt"},
+  "dirt": {"id": 2, "name": "Dirt", "solid": true, "hardness": 0.5, "color": [0.45, 0.3, 0.15]},
+  "stone": {"id": 3, "name": "Stone", "solid": true, "hardness": 1.5, "color": [0.55, 0.55, 0.55], "tool": "pickaxe"},
+  "sand": {"id": 4, "name": "Sand", "solid": true, "hardness": 0.5, "color": [0.85, 0.8, 0.5]},
+  "water": {"id": 5, "name": "Water", "solid": false, "transparent": true, "hardness": 0, "color": [0.2, 0.4, 0.85]},
+  "wood": {"id": 6, "name": "Wood Log", "solid": true, "hardness": 1.0, "color": [0.4, 0.25, 0.1]},
+  "leaves": {"id": 7, "name": "Leaves", "solid": true, "transparent": true, "hardness": 0.2, "color": [0.2, 0.55, 0.2]},
+  "planks": {"id": 8, "name": "Planks", "solid": true, "hardness": 0.8, "color": [0.65, 0.5, 0.3]},
+  "cobble": {"id": 9, "name": "Cobblestone", "solid": true, "hardness": 1.5, "color": [0.45, 0.45, 0.45]},
+  "coal_ore": {"id": 10, "name": "Coal Ore", "solid": true, "hardness": 2.0, "color": [0.25, 0.25, 0.25], "tool": "pickaxe"},
+  "iron_ore": {"id": 11, "name": "Iron Ore", "solid": true, "hardness": 2.5, "color": [0.55, 0.4, 0.35], "tool": "pickaxe"},
+  "torch": {"id": 12, "name": "Torch", "solid": false, "hardness": 0.1, "color": [1.0, 0.85, 0.3], "light": 12}
+}
