@@ -25,6 +25,8 @@ from engine.time_manager import TimeManager
 from player.inventory import Inventory
 from player.stats import PlayerStats
 from crafting.crafting_system import CraftingSystem
+from ui.hud import format_stats
+from graphics.lighting import LightingSystem
 
 cfg = json.loads((ROOT / "config" / "game_config.json").read_text(encoding="utf-8"))
 registry.load(ROOT / "config" / "blocks.json")
@@ -50,6 +52,8 @@ AmbientLight(color=color.rgba(100, 100, 120, 0.4))
 
 chunks = ChunkManager(seed=SEED, size=CHUNK_SIZE, height=CHUNK_HEIGHT, render_distance=RENDER_DIST)
 clock = TimeManager(day_length=float(cfg.get("day_length_seconds", 1440)))
+lighting = LightingSystem()
+torch_entities = {}
 
 spawn_x, spawn_z = 0, 0
 chunks.ensure_around(spawn_x, spawn_z)
@@ -161,10 +165,11 @@ def update_hud():
             hb.append(f"{mark}{i+1}:--")
     hotbar_text.text = "  ".join(hb)
     mode = "FLY" if fly_mode else gamemode.upper()
-    stats_text.text = (
-        f"HP {stats.health:.0f}/{stats.max_health:.0f}  "
-        f"Hunger {stats.hunger:.0f}  Stam {stats.stamina:.0f}  "
-        f"XP {stats.xp} Lv{stats.level}  [{mode}]  {weather}"
+    stats_text.text = format_stats(
+        stats.health, stats.max_health,
+        stats.hunger, stats.max_hunger,
+        stats.stamina, stats.max_stamina,
+        stats.xp, stats.level, mode, weather,
     )
     if debug_on:
         px, py, pz = player.x, player.y, player.z
@@ -249,6 +254,11 @@ def do_break_or_attack():
             ch = chunks.chunks.get(chunks.chunk_coords(bx, bz))
             if ch:
                 rebuild_chunk_mesh(ch)
+            if bid == 12:
+                lighting.remove_torch(bx, by, bz)
+                te = torch_entities.pop((bx, by, bz), None)
+                if te:
+                    destroy(te)
             stats.add_xp(1)
             if gamemode == "survival":
                 stats.stamina = max(0, stats.stamina - 0.3)
@@ -277,6 +287,16 @@ def do_place():
     ch = chunks.chunks.get(chunks.chunk_coords(bx, bz))
     if ch:
         rebuild_chunk_mesh(ch)
+    if block_id == 12:
+        lighting.add_torch(bx, by, bz)
+        glow = Entity(
+            model="sphere",
+            scale=0.35,
+            color=color.rgb(255, 200, 80),
+            position=(bx + 0.5, by + 0.7, bz + 0.5),
+            unlit=True,
+        )
+        torch_entities[(bx, by, bz)] = glow
 
 SAVE_PATH = ROOT / "saves" / "quicksave.json"
 
