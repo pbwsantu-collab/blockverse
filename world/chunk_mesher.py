@@ -37,9 +37,11 @@ def build_mesh_data(chunk: "Chunk", registry: "BlockRegistry"):
                 if bid == 0:
                     continue
                 bdef = registry.get(bid)
-                if bdef and bdef.transparent and not bdef.solid:
+                if bid != 5 and bdef and bdef.transparent and not bdef.solid:
                     continue
                 color = registry.color(bid)
+                if bid == 5:
+                    color = (0.25, 0.45, 0.9)
                 for (dx, dy, dz), corners in FACES:
                     nx, ny, nz = x + dx, y + dy, z + dz
                     if solid(nx, ny, nz):
